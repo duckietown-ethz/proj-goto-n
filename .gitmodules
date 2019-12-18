@@ -1,3 +1,9 @@
 [submodule "goto_n_acqusition_bridge"]
 	path = goto_n_acqusition_bridge
 	url = git@github.com:/alexushatten/acquisition-bridge.git
+[submodule "goto-n_duckiebot_node"]
+	path = goto-n_duckiebot_node
+	url = https://github.com/alexushatten/goto_n_duckiebot.git
+[submodule "goto-n_server_node"]
+	path = goto-n_server_node
+	url = https://github.com/alexushatten/goto_n.git
