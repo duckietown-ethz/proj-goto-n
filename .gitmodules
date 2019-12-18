@@ -1,0 +1,3 @@
+[submodule "goto_n_acqusition_bridge"]
+	path = goto_n_acqusition_bridge
+	url = git@github.com:/alexushatten/acquisition-bridge.git
