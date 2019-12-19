@@ -4,7 +4,7 @@ Contributors: Alexander Hatteland, Marc-Philippe Frey & Demetris Chrysostomou
 # Set-up: #
 The entire project is based on the "daffy" (develop) configuration of Duckietown. It is built around the dt-core pipeline and comminicating with the autolab server. It is important that this is only tried in autolabs, where the watchtowers and localization system is properly set up.
 
-## Setting up the framework on each Autobot: ##
+### Setting up the framework on each Autobot: ###
 First, ensure that the Autobot has the latest dt-core, dr-car-interface and dt-duckiebot-interface:
 
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-car-interface:daffy
