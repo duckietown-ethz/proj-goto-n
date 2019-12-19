@@ -5,7 +5,7 @@
 The entire project is based on the "daffy" (develop) configuration of Duckietown. It is built around the dt-core pipeline and comminicating with the autolab server. It is important that this is only tried in autolabs, where the watchtowers and localization system is properly set up.
 
 ### Setting up the framework on each Autobot: ###
-To use this, the Duckiebot needs to be updated to Autobots. You do this by followin [this](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_autobot_specs.html).
+To test this project, the Duckiebot needs to be updated to Autobots. You do this by followin [this](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_autobot_specs.html).
 
 Ensure that the Autobot has the latest dt-core, dr-car-interface and dt-duckiebot-interface:
 
