@@ -1,7 +1,8 @@
-# proj-goto-n
-AMoD 2019 - Fleet autopilot project
 ![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/header.png)
-Setting up the framework on each Autobot:
+Contributors: Alexander Hatteland, Marc-Philippe Frey & Demetris Chrysostomou
+
+# Set-up #
+## Setting up the framework on each Autobot: ##
 First, ensure that the Autobot has the latest dt-core, dr-car-interface and dt-duckiebot-interface:
 
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-car-interface:daffy
