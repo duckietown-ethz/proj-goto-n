@@ -114,3 +114,11 @@ docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 ```
 Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
 
+# Config parameters: #
+### duckiebots.yaml ###
+### duckiebots.yaml ###
+### duckiebots.yaml ###
+
+# Remarks: #
+This code is only tested for ML k31 autolab enviornment.
+
