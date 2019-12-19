@@ -30,7 +30,7 @@ $ dts duckiebot demo --demo_name all --duckiebot_name DUCKIEBOT_NAME --package_n
 ```
 
 
-Finally, we need to start indefinite navigation. The version of indefinite navigation used in this demo is without the random random_april_tags_turn_node. Hence, one needs to edit the current version to disable this node from the pipeline. A way of doing that easily will be to first go into the container of **dt-core**:
+Indefinite navigation needs to running. The version of indefinite navigation used in this demo is without the random random_april_tags_turn_node. Hence, one needs to edit the current version to disable this node from the pipeline. A way of doing that easily will be to first go into the container of **dt-core**:
 
 ```
 $ docker -H DUCKIEBOT_NAME.local run -it --name goton-dt-core -v /data:/data --privileged --net host duckietown/dt-core:daffy /bin/bash
@@ -56,7 +56,11 @@ Launch the **indefinite navigation** nodes using:
 roslaunch duckietown_demos indefinite_navigation.launch veh:=DUCKIEBOT_NAME
 ```
 
-Next, one needs to build the **goto-n version** of the **acqusition bridge** on the Autobot. In order to use the watchtowers as guidance, an updated version of the acqusition brige must be on the Autobot. Clone the acqustion brige from this repository, and once it is cloned build it on the Autobot
+Next, one needs to build the **goto-n version** of the **acqusition bridge** on the Autobot. In order to use the watchtowers as guidance, an updated version of the acqusition brige must be on the Autobot. Clone the acqustion brige from this repository:
+```
+git clone https://github.com/alexushatten/acquisition-bridge
+```
+Once it is cloned, build it on the Autobot.
 Remember to stop the watchtower when building new images on the Autobot:
 ```
 $ dts devel watchtower stop -H DUCKIEBOT_NAME.local
@@ -72,6 +76,9 @@ docker -H HOSTNAME.local run --name goto-n-acquisition-bridge --network=host -v 
 ```
 
 Finally, start the **goto-n-duckiebot node**. This is the node that will get the planning commands from the server and ensure that the robot takes the right decision at each intersection. First clone the goto-n-duckiebot repositiory:
+```
+git clone https://github.com/alexushatten/goto_n_duckiebot
+```
 
 Then, build the image on the Autobot:
 ```
@@ -85,15 +92,16 @@ docker -H DUCKIEBOT_NAME.local run -it –privileged --rm --network=host -v /dat
 The Autobot is now ready to receive commands from the server on where to go.
 
 ### Setting up the framework on the server: ####
-First, ensure that the Autolab is properly initalized. Instructions on how to do that is found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_minimal_requirements.html)
+First, ensure that the Autolab is properly initalized. Instructions on how to do that is found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_minimal_requirements.html).
 When the autolab is properly set up, start the c-slam localization. It is possible to do that by:
 ```
 $ docker run --rm -e ATMSGS_BAG=/data/processed_BAG_NAME.BAG -e OUTPUT_DIR=/data ROS_MASTER=YOUR_HOSTNAME -e ROS_MASTER_IP=YOUR_IP --name graph_optimizer -v PATH_TO_BAG_FOLDER:/data -e DUCKIETOWN_WORLD_FORK=YOUR_FORK_NAME -e MAP_NAME=YOUR_MAP_NAME duckietown/cslam-graphoptimizer:daffy-amd64
 ```
 
 Once the localization system is up and running, clone the goto-n node to the server:
-
-
+```
+git clone https://github.com/alexushatten/goto_n
+```
 
 This node will do the planning, as well as the closed-loop precision for each autobot during the driving. 
 Build the image by using:
@@ -104,6 +112,5 @@ Run the system by:
 ```
 docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 ```
-Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder.
-
+Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
 
