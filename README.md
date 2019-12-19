@@ -1,6 +1,6 @@
 # proj-goto-n
 AMoD 2019 - Fleet autopilot project
-![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/duckie2-76ds8x691.png)
+![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/header.png)
 Setting up the framework on each Autobot:
 First, ensure that the Autobot has the latest dt-core, dr-car-interface and dt-duckiebot-interface:
 
