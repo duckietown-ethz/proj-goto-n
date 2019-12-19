@@ -115,10 +115,15 @@ docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
 
 # Config parameters: #
+All the parameters are in the server-node of goto-n found [here](https://github.com/alexushatten/goto_n/tree/6a7c8d0dd7a4f0b0c2ec46f4239e2c00278b835a/packages/goto_n/config).
 ### duckiebots.yaml ###
-### duckiebots.yaml ###
-### duckiebots.yaml ###
-
+Here it is important that the Autobot number (e.g. 21) is defined for all the Autobots that are in the system. The reason this is done is to be able to test the system while other groups are doing their tests. This is so that the planner will not get affected by other present duckiebots.
+### termination_positions.yaml ###
+There needs to be one termination position for each autobot present in the city. Otherwise it will not be possible to drive all the bots to a desired location. It is assumed that there are always equal number of termination positions and Autobots.
+### watchtowers.yaml ###
+All the watchtowers used in this tests needs to be defined here, so that the node sends the _request image_ message to all the watchtowers. This is done so that it is possible to locate autobots without any movement.
+### map ###
+The map used is found [here](https://github.com/alexushatten/goto_n/tree/v1/packages/goto_n/maps). Currently, edit the mapfile that is already there since this map is defined in the code already.
 # Remarks: #
 This code is only tested for ML k31 autolab enviornment.
 
