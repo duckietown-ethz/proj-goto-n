@@ -8,9 +8,12 @@ The entire project is based on the "daffy" (develop) configuration of Duckietown
 To test this project, the Duckiebot needs to be updated to Autobots. You do this by following [this](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_autobot_specs.html).
 
 Ensure that the Autobot has the latest dt-core, dr-car-interface and dt-duckiebot-interface:
+
 `
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-car-interface:daffy
+
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-duckiebot-interface:daffy
+
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-core:daffy
 `
 
