@@ -9,13 +9,13 @@ To test this project, the Duckiebot needs to be updated to Autobots. You do this
 
 Ensure that the Autobot has the latest dt-core, dr-car-interface and dt-duckiebot-interface:
 
-`
+```
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-car-interface:daffy
 
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-duckiebot-interface:daffy
 
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-core:daffy
-`
+```
 
 First, make sure all old containers from the images dt-duckiebot-interface, dt-car-interface, and dt-core are stopped. These containers can have different names, instead look at the image name from which they are run.
 
