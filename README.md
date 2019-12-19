@@ -20,18 +20,21 @@ $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-core:daffy
 First, make sure all old containers from the images dt-duckiebot-interface, dt-car-interface, and dt-core are stopped. These containers can have different names, instead look at the image name from which they are run.
 
 Then, start all the drivers in dt-duckiebot-interface:
-`
+```
 $ dts duckiebot demo --demo_name all_drivers --duckiebot_name DUCKIEBOT_NAME --package_name duckiebot_interface --image duckietown/dt-duckiebot-interface:daffy
-`
+```
 
 Also start the “glue” nodes that handle the joystick mapping and the kinematics:
-
-`$ dts duckiebot demo --demo_name all --duckiebot_name DUCKIEBOT_NAME --package_name car_interface --image duckietown/dt-car-interface:daffy`
+```
+$ dts duckiebot demo --demo_name all --duckiebot_name DUCKIEBOT_NAME --package_name car_interface --image duckietown/dt-car-interface:daffy
+```
 
 
 Finally, we need to start indefinite navigation. The version of indefinite navigation used in this demo is without the random random_april_tags_turn_node. Hence, one needs to edit the current version to disable this node from the pipeline. A way of doing that easily will be to first go into the container of dt-core:
 
+```
 $ docker -H DUCKIEBOT_NAME.local run -it --name goton-dt-core -v /data:/data --privileged --net host duckietown/dt-core:daffy /bin/bash
+```
 
 Once inside the root of the container, one needs to navigate to the location of the launchfile that needs to be edit (packages/duckietown_demos/launch). The file that needs to be edited is the indefinite_navigation.launch. Do this by installing a text editor (e.g. vim):
 $ cd packages/duckietown_demos/launch
