@@ -85,7 +85,7 @@ docker -H DUCKIEBOT_NAME.local run -it –privileged --rm --network=host -v /dat
 The Autobot is now ready to receive commands from the server on where to go.
 
 ### Setting up the framework on the server: ####
-First, ensure that the Autolab is properly initalized. Instructions on how to do that is found [here] (https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_minimal_requirements.html)
+First, ensure that the Autolab is properly initalized. Instructions on how to do that is found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_minimal_requirements.html)
 When the autolab is properly set up, start the c-slam localization. It is possible to do that by:
 ```
 $ docker run --rm -e ATMSGS_BAG=/data/processed_BAG_NAME.BAG -e OUTPUT_DIR=/data ROS_MASTER=YOUR_HOSTNAME -e ROS_MASTER_IP=YOUR_IP --name graph_optimizer -v PATH_TO_BAG_FOLDER:/data -e DUCKIETOWN_WORLD_FORK=YOUR_FORK_NAME -e MAP_NAME=YOUR_MAP_NAME duckietown/cslam-graphoptimizer:daffy-amd64
