@@ -146,8 +146,9 @@ It is possible to tune independent parameters using:
 $ docker run -it --rm  -e ROS_MASTER_URI="http://DUCKIEBOT_IP:11311/" duckietown/dt-ros-commons:daffy-amd64 /bin/bash
 $ rosparam set /name/of/param DESIRED_VALUE
 ```
-![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/intersection.png)
+
 For trouble with the intersection navigation (i.e. the bot does not turn the way it is supposed to do). Follow the guidelines [here](https://docs.duckietown.org/daffy/opmanual_duckiebot/out/trouble_unicorn_intersection.html)
+
 If the messages from the server are not being recieved on the Autobot, check if the correct version of acqusition bridge is being used, and that it is still running properly. The version in this repository are the only one which containes the messages that needs to be sent between the different ROS_MASTERs. Easiest way to ensure that it is set up correctly is to remove the container and building it again from scratch.
 
 # Imrovements: #
