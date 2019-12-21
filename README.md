@@ -48,12 +48,12 @@ Inide indefinite_navigation.launch turn the flag for apriltag_random from “tru
 
 If this setup has been done before, and you want to start it again. Start the container and then attach yourself to the docker container using:
 ```
-docker -H DUCKIEBOT_NAME.local attach goton-dt-core
+$ docker -H DUCKIEBOT_NAME.local attach goton-dt-core
 ```
 
 Launch the **indefinite navigation** nodes using:
 ```
-roslaunch duckietown_demos indefinite_navigation.launch veh:=DUCKIEBOT_NAME
+$ roslaunch duckietown_demos indefinite_navigation.launch veh:=DUCKIEBOT_NAME
 ```
 
 Next, one needs to build the **goto-n version** of the **acqusition bridge** on the Autobot. In order to use the watchtowers as guidance, an updated version of the acqusition brige must be on the Autobot. Clone the acqustion brige from this repository:
@@ -77,7 +77,7 @@ docker -H HOSTNAME.local run --name goto-n-acquisition-bridge --network=host -v 
 
 Finally, start the **goto-n-duckiebot node**. This is the node that will get the planning commands from the server and ensure that the robot takes the right decision at each intersection. First clone the goto-n-duckiebot repositiory:
 ```
-git clone https://github.com/alexushatten/goto_n_duckiebot
+$ git clone https://github.com/alexushatten/goto_n_duckiebot
 ```
 
 Then, build the image on the Autobot:
@@ -87,7 +87,7 @@ $ dts devel build -f --arch arm32v7 -H DUCKIEBOT_NAME.local
 
 Start the goto-n-duckiebot node by:
 ```
-docker -H DUCKIEBOT_NAME.local run -it –privileged --rm --network=host -v /data:/data duckietown/goto_n_duckiebot:v1-arm32v7
+$ docker -H DUCKIEBOT_NAME.local run -it –privileged --rm --network=host -v /data:/data duckietown/goto_n_duckiebot:v1-arm32v7
 ```
 The Autobot is now ready to receive commands from the server on where to go.
 
@@ -100,19 +100,22 @@ $ docker run --rm -e ATMSGS_BAG=/data/processed_BAG_NAME.BAG -e OUTPUT_DIR=/data
 
 Once the localization system is up and running, clone the goto-n node to the server:
 ```
-git clone https://github.com/alexushatten/goto_n
+$ git clone https://github.com/alexushatten/goto_n
 ```
 
 This node will do the planning, as well as the closed-loop precision for each autobot during the driving. 
 Build the image by using:
 ```
-dts devel build -f –arch amd64
+$ dts devel build -f –arch amd64
 ```
 Run the system by:
 ```
-docker run -it –-rm –net host duckietown/goto_n:v1-amd64
+$ docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 ```
 Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
+
+### Additional: ###
+It is possible to see the output of the planning through Rviz. The topic _/autobotXX/planning_vizualisation_ will show the path of each Autobot. Remember to overlay the map.
 
 # Config parameters: #
 All the parameters are in the server-node of goto-n found [here](https://github.com/alexushatten/goto_n/tree/6a7c8d0dd7a4f0b0c2ec46f4239e2c00278b835a/packages/goto_n/config).
@@ -124,6 +127,32 @@ There needs to be one termination position for each autobot present in the city.
 All the watchtowers used in this tests needs to be defined here, so that the node sends the _request image_ message to all the watchtowers. This is done so that it is possible to locate autobots without any movement.
 ### map ###
 The map used is found [here](https://github.com/alexushatten/goto_n/tree/v1/packages/goto_n/maps). Currently, edit the mapfile that is already there since this map is defined in the code already.
+# Current Pipeline: #
+
+
+
+# Troubleshooting: #
+If experiencing poor driving buy the Autobots, make sure that the calibration (intrincic, extrincic and kinematic) are done properly, since the Autobot uses these parameters when driving.
+
+Also, it is possible to tune different parameters when experiencing poor performance.
+See the full parameter list by:
+```
+$ dts start_gui_tools DUCKIEBOT_NAME
+$ rosparam list
+$ rosparam get /directory/path/file DESIRED_VALUE
+```
+It is possible to tune independent parameters using:
+```
+$ docker run -it --rm  -e ROS_MASTER_URI="http://DUCKIEBOT_IP:11311/" duckietown/dt-ros-commons:daffy-amd64 /bin/bash
+$ rosparam set /name/of/param DESIRED_VALUE
+```
+
+If the messages from the server are not being recieved on the Autobot, check if the correct version of acqusition bridge is being used, and that it is still running properly. The version in this repository are the only one which containes the messages that needs to be sent between the different ROS_MASTERs. Easiest way to ensure that it is set up correctly is to remove the container and building it again from scratch.
+
+# Imrovements: #
+
 # Remarks: #
 This code is only tested for ML k31 autolab enviornment.
+The system is scaleable to as many robots as needed, but only tested for up to 3 bots.
+
 
