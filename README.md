@@ -127,8 +127,8 @@ There needs to be one termination position for each autobot present in the city.
 All the watchtowers used in this tests needs to be defined here, so that the node sends the _request image_ message to all the watchtowers. This is done so that it is possible to locate autobots without any movement.
 ### map ###
 The map used is found [here](https://github.com/alexushatten/goto_n/tree/v1/packages/goto_n/maps). Currently, edit the mapfile that is already there since this map is defined in the code already.
-# Current Pipeline: #
-
+# Pipeline: #
+![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/pipeline.png)
 
 
 # Troubleshooting: #
