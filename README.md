@@ -228,7 +228,7 @@ Other instances of demo failures also relate to lane-following. As you can see i
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/lve8caWlg_Y/0.jpg)](https://www.youtube.com/watch?v=lve8caWlg_Y)
 
 
-However, when accidents like this occur, the pipeline has a replan function, which replans according to the new position of the robot. This is to make the system more reliable, and less prone to failure caused by bad driving. An example of a replanning procedure is found here: 
+However, when accidents like this occur, the pipeline has a replan function, which replans according to the new position of the robot. An example of a replanning procedure is found here: 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9v8k-jVKoUQ/0.jpg)](https://www.youtube.com/watch?v=9v8k-jVKoUQ)
 
