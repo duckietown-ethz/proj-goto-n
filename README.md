@@ -203,6 +203,13 @@ Resolution: Edit the config files described in section 7. Remember to have equal
 
 Resolution: If the planner does not detect the duckiebot, ensure that the localization system is running. Also ensure that the correct AutobotID number is given in the duckiebots.yaml file. Check if the Autobot has a visible april tag and that the watchtowers are running. Also check if the watchtowers.yaml is updated to the correct id.
 
+> Symptom: The Autobot overshoots the final termination pose. 
+
+Resolution: The precision node is reliant on fast updates from the localization system. If the precision node gets delayed messages from localization it is possible to tune the parameters in the config file of the localization system(cslam). The parameters are found [here](https://github.com/duckietown/duckietown-cslam/blob/master/01-graph-optimizer/ros/src/pose_graph_builder/params/default_params.yaml). The parameters that can be smart to change are:
+* maximum_g2o_iterations
+* optimization_frequency
+* resampling_frequency 
+
 # 9. Demo Failure # 
 
 # 10. Imrovements: #
