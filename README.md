@@ -193,6 +193,15 @@ Remember: These parameters gets reset if you restart indefinite navigation.
 
 Resolution:
 * Check if the correct version of acqusition bridge is being used, and that it is still running properly. The version in this repository are the only one which containes the messages that needs to be sent between the different ROS_MASTERs. Easiest way to ensure that it is set up correctly is to remove the container and building it again from scratch.
+* Ensure that the corret IP of the lab is being used.
+
+> Symptom: The planner say that there is not the same number of Duckiebots as there are terminations states.
+
+Resolution: Edit the config files described in section 7. Remember to have equal number of bots as there are termination state.
+
+> Symptom: The planner does not detect my Duckiebot
+
+Resolution: If the planner does not detect the duckiebot, ensure that the localization system is running. Also ensure that the correct AutobotID number is given in the duckiebots.yaml file. Check if the Autobot has a visible april tag and that the watchtowers are running. Also check if the watchtowers.yaml is updated to the correct id.
 
 # 9. Demo Failure # 
 
