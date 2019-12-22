@@ -7,7 +7,7 @@
 The video below shows the successful completion of the Goto-N Project Pipeline for two duckiebots in an autolab. 
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/0ujgo1SlRus/0.jpg)](https://www.youtube.com/watch?v=0ujgo1SlRus)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/VwOEvW4-aio/0.jpg)](https://www.youtube.com/watch?v=VwOEvW4-aio)
 
 We have also added an additional short video of the visual representation of the planner. The video outlines the Autobot's generated path in RVIZ to be inspected visually. Furthermore, it also showcases an instance of the planner's ability to replan when it detects a mistake in it's path. It is important to note that the video below is a seperate instance of the Goto-N node and not related to the video above. 
 
