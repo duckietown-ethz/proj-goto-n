@@ -161,7 +161,10 @@ The map used is found [here](https://github.com/alexushatten/goto_n/tree/v1/pack
 
 
 # 8. Troubleshooting: #
-If experiencing poor driving buy the Autobots, make sure that the calibration (intrincic, extrincic and kinematic) are done properly, since the Autobot uses these parameters when driving.
+
+> Symptom: I am experiencing poor driving by the Autobots, either in lane or at an intersection.
+Resolution: If experiencing poor driving buy the Autobots:
+* Make sure that the [calibration](https://docs.duckietown.org/daffy/opmanual_duckiebot/out/camera_calib.html)  (intrincic, extrincic and kinematic) are done properly. 
 
 Also, it is possible to tune different parameters when experiencing poor performance.
 See the full parameter list by:
