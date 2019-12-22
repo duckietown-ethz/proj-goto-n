@@ -3,13 +3,13 @@
 #### Mentors: Amaury Camus, Tomasz Zaluska ####
 #### Supervisor: Jacopo Tani ####
 
-# Goto-N Project: #
+# 1. Goto-N Project: #
 The video below shows the successful completion of the Goto-N Project Pipeline for two duckiebots in an autolab. 
 
-# Duckietown Set-up: #
+# 2. Duckietown Set-up: #
 To run the Goto-N pipeline, the user has to setup an operational duckietown according to the specifications found [here](https://docs.duckietown.org/daffy/opmanual_duckietown/out/index.html). Furthermore, the package requires access to a localization system in order to ensure that the duckiebots are localizable. Consequently, the duckietown has to be configured as an autolab according to the autolab specifications found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/index.html). Once the duckietown is setup as a functioning autlab, with watchtowers and april tags placed correctly and the localization system configured, the user can proceed to the duckiebot and server setup. 
 
-# Duckiebot Set-up: #
+# 3. Duckiebot Set-up: #
 The entire project is based on the "daffy" (develop) configuration of Duckietown. It is built around the dt-core pipeline and comminicating with the autolab server. It is important that this is only tried in autolabs, where the watchtowers and localization system is properly set up.
 
 ### Setting up the framework on each Autobot: ###
@@ -36,7 +36,6 @@ Also start the “glue” nodes that handle the joystick mapping and the kinemat
 ```
 $ dts duckiebot demo --demo_name all --duckiebot_name DUCKIEBOT_NAME --package_name car_interface --image duckietown/dt-car-interface:daffy
 ```
-
 
 Indefinite navigation needs to running. The version of indefinite navigation used in this demo is without the random random_april_tags_turn_node. Hence, one needs to edit the current version to disable this node from the pipeline. A way of doing that easily will be to first go into the container of **dt-core**:
 
@@ -73,17 +72,12 @@ Remember to stop the watchtower when building new images on the Autobot:
 ```
 $ dts devel watchtower stop -H DUCKIEBOT_NAME.local
 ```
-Once that is done:
+Once that is done, build the **acquisition bridge** on each Autobot individually by running the command:
 ```
 $ dts devel build -f --arch arm32v7 -H DUCKIEBOT_NAME.local
 ```
 
-Start the acqusition bridge using:
-```
-docker -H HOSTNAME.local run --name goto-n-acquisition-bridge --network=host -v /data:/data -e LAB_ROS_MASTER_IP=YOUR_LAB_ROS_MASTER_IP -dit duckietown/acquisition-bridge:daffy-arm32v7
-```
-
-Finally, start the **goto-n-duckiebot node**. This is the node that will get the planning commands from the server and ensure that the robot takes the right decision at each intersection. First clone the goto-n-duckiebot repositiory:
+Finally, the **goto-n-duckiebot node** needs to be built and started. This is the node that will get the planning commands from the server and ensure that the robot takes the right decision at each intersection. First clone the goto-n-duckiebot repositiory:
 ```
 $ git clone https://github.com/alexushatten/goto_n_duckiebot
 ```
@@ -92,13 +86,7 @@ Then, build the image on the Autobot:
 ```
 $ dts devel build -f --arch arm32v7 -H DUCKIEBOT_NAME.local
 ```
-
-Start the goto-n-duckiebot node by:
-```
-$ docker -H DUCKIEBOT_NAME.local run -it –privileged --rm --network=host -v /data:/data duckietown/goto_n_duckiebot:v1-arm32v7
-```
-The Autobot is now ready to receive commands from the server on where to go.
-
+# 4. Server Setup
 ### Setting up the framework on the server: ####
 First, ensure that the Autolab is properly initalized. Instructions on how to do that is found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_minimal_requirements.html).
 When the autolab is properly set up, start the c-slam localization. It is possible to do that by:
@@ -116,16 +104,34 @@ Build the image by using:
 ```
 $ dts devel build -f –arch amd64
 ```
-Run the system by:
+
+# 5. Pre-Flight Checklist: #
+
+# 6. Demo Instructions: #
+Once the setup instructions for the Autolab, Autobot and server have been executed, it is possible to start the demo. Make sure that the watchtower localization system is up and running. Furthermore, make sure that the relevant information if fed into the Goto-N server node such as the Autobot list and desired termination positions. Lastly, also make sure that the Autobots are present in the Autolab and meet our pre-defined assumptions. 
+
+Begin by start the **acqusition bridge** for each Autobot using (keep in mind that each Autobot requires a seperate terminal):
+```
+docker -H HOSTNAME.local run --name goto-n-acquisition-bridge --network=host -v /data:/data -e LAB_ROS_MASTER_IP=YOUR_LAB_ROS_MASTER_IP -dit duckietown/acquisition-bridge:daffy-arm32v7
+```
+
+Once the **acquisition bridge** is started, open a new terminal for each Autobot and run the **goto_n_duckiebot** node opn each Autobot individually using the command:
+```
+$ docker -H DUCKIEBOT_NAME.local run -it –privileged --rm --network=host -v /data:/data duckietown/goto_n_duckiebot:v1-arm32v7
+```
+The Autobot is now ready to receive commands from the server on where to go.
+
+Finally, start the server node in another seperate terminal using the command:
 ```
 $ docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 ```
 Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
 
+
 ### Additional: ###
 It is possible to see the output of the planning through Rviz. The topic _/autobotXX/planning_vizualisation_ will show the path of each Autobot. Remember to overlay the map.
 
-# Config parameters: #
+# 7. Configuration parameters: #
 All the parameters are in the server-node of goto-n found [here](https://github.com/alexushatten/goto_n/tree/6a7c8d0dd7a4f0b0c2ec46f4239e2c00278b835a/packages/goto_n/config).
 ### duckiebots.yaml ###
 Here it is important that the Autobot number (e.g. 21) is defined for all the Autobots that are in the system. The reason this is done is to be able to test the system while other groups are doing their tests. This is so that the planner will not get affected by other present duckiebots.
@@ -139,7 +145,7 @@ The map used is found [here](https://github.com/alexushatten/goto_n/tree/v1/pack
 ![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/pipeline.png)
 
 
-# Troubleshooting: #
+# 8. Troubleshooting: #
 If experiencing poor driving buy the Autobots, make sure that the calibration (intrincic, extrincic and kinematic) are done properly, since the Autobot uses these parameters when driving.
 
 Also, it is possible to tune different parameters when experiencing poor performance.
@@ -159,9 +165,11 @@ For trouble with the intersection navigation (i.e. the bot does not turn the way
 
 If the messages from the server are not being recieved on the Autobot, check if the correct version of acqusition bridge is being used, and that it is still running properly. The version in this repository are the only one which containes the messages that needs to be sent between the different ROS_MASTERs. Easiest way to ensure that it is set up correctly is to remove the container and building it again from scratch.
 
-# Imrovements: #
+# 9. Demo Failure # 
 
-# Remarks: #
+# 10. Imrovements: #
+
+# 11. Remarks: #
 This code is only tested for ML k31 autolab enviornment.
 The system is scaleable to as many robots as needed, but only tested for up to 3 bots.
 
