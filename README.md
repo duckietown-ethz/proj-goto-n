@@ -3,8 +3,12 @@
 #### Mentors: Amaury Camus, Tomasz Zaluska ####
 #### Supervisor: Jacopo Tani ####
 
+# Goto-N Project #:
+The video below shows the successful completion of the Goto-N Project Pipeline for two duckiebots in an autolab. 
 
-# Set-up: #
+# Duckietown Set-up: #
+
+# Duckiebot Set-up: #
 The entire project is based on the "daffy" (develop) configuration of Duckietown. It is built around the dt-core pipeline and comminicating with the autolab server. It is important that this is only tried in autolabs, where the watchtowers and localization system is properly set up.
 
 ### Setting up the framework on each Autobot: ###
