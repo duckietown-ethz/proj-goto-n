@@ -163,25 +163,36 @@ The map used is found [here](https://github.com/alexushatten/goto_n/tree/v1/pack
 # 8. Troubleshooting: #
 
 > Symptom: I am experiencing poor driving by the Autobots, either in lane or at an intersection.
-Resolution: If experiencing poor driving buy the Autobots:
-* Make sure that the [calibration](https://docs.duckietown.org/daffy/opmanual_duckiebot/out/camera_calib.html)  (intrincic, extrincic and kinematic) are done properly. 
 
-Also, it is possible to tune different parameters when experiencing poor performance.
+Resolution: If experiencing poor driving buy the Autobots:
+* Make sure that the [calibration](https://docs.duckietown.org/daffy/opmanual_duckiebot/out/camera_calib.html)  (intrincic, extrincic and kinematic) are done properly, so that the lanefollowing is improved. 
+* Also, it is possible to tune different parameters when experiencing poor performance.
 See the full parameter list by:
 ```
 $ dts start_gui_tools DUCKIEBOT_NAME
 $ rosparam list
-$ rosparam get /directory/path/file DESIRED_VALUE
 ```
 It is possible to tune independent parameters using:
 ```
 $ docker run -it --rm  -e ROS_MASTER_URI="http://DUCKIEBOT_IP:11311/" duckietown/dt-ros-commons:daffy-amd64 /bin/bash
 $ rosparam set /name/of/param DESIRED_VALUE
 ```
+The parameters that can be smart to edit for improving the intersection navigation is the parameters under /DUCKIEBOT_NAME/unicorn_intersection_node/...:
+ * ff_left
+ * ff_right
+ * ff_straight
+ * time_left_turn
+ * time_right_turn
+ * time_straight_turn
 
-For trouble with the intersection navigation (i.e. the bot does not turn the way it is supposed to do). Follow the guidelines [here](https://docs.duckietown.org/daffy/opmanual_duckiebot/out/trouble_unicorn_intersection.html)
+The full explaination is found [here](https://docs.duckietown.org/daffy/opmanual_duckiebot/out/trouble_unicorn_intersection.html)
 
-If the messages from the server are not being recieved on the Autobot, check if the correct version of acqusition bridge is being used, and that it is still running properly. The version in this repository are the only one which containes the messages that needs to be sent between the different ROS_MASTERs. Easiest way to ensure that it is set up correctly is to remove the container and building it again from scratch.
+Remember: These parameters gets reset if you restart indefinite navigation.
+
+> Symptom: The way-point commands is not being recieved on the Duckiebot
+
+Resolution:
+* Check if the correct version of acqusition bridge is being used, and that it is still running properly. The version in this repository are the only one which containes the messages that needs to be sent between the different ROS_MASTERs. Easiest way to ensure that it is set up correctly is to remove the container and building it again from scratch.
 
 # 9. Demo Failure # 
 
