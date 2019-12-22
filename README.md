@@ -93,7 +93,7 @@ Then, build the image on the Autobot:
 ```
 $ dts devel build -f --arch arm32v7 -H DUCKIEBOT_NAME.local
 ```
-# 4. Server Setup
+# 4. Server Set-up: #
 ### Setting up the framework on the server: ####
 First, ensure that the Autolab is properly initalized. Instructions on how to do that is found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_minimal_requirements.html).
 When the autolab is properly set up, start the c-slam localization. It is possible to do that by:
@@ -141,6 +141,8 @@ Finally, start the server node in another seperate terminal using the command:
 $ docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 ```
 Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
+
+###Example on a successfull demo:###
 
 
 ### Additional: ###
@@ -210,9 +212,12 @@ Resolution: The precision node is reliant on fast updates from the localization 
 * optimization_frequency
 * resampling_frequency 
 
-# 9. Demo Failure # 
+# 9. Demo Failure: # 
 The unsuccessfull attempts were most of the times due to troubles at intersections. One example of this is shown here:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zOQIrjDeYjE/0.jpg)](https://www.youtube.com/watch?v=zOQIrjDeYjE)
+
+However, when accidents like this occur, the pipeline has a replan function, which replans according to the new position of the robot. This is to make the system more reliable, and less prone to failure caused by bad driving. An example of a replanning procedure is found here: 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9v8k-jVKoUQ/0.jpg)](https://www.youtube.com/watch?v=9v8k-jVKoUQ)
 # 10. Imrovements: #
 
 # 11. Remarks: #
