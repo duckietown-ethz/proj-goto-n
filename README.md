@@ -1,10 +1,17 @@
 ![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/header.png)
 #### Contributors: Alexander Hatteland, Marc-Philippe Frey & Demetris Chrysostomou ####
-#### Mentors: Amaury Camus, Tomasz Zaluska ####
-#### Supervisor: Jacopo Tani ####
+##### Mentors: Amaury Camus, Tomasz Zaluska #####
+##### Supervisor: Jacopo Tani #####
 
 # 1. Goto-N Project: #
 The video below shows the successful completion of the Goto-N Project Pipeline for two duckiebots in an autolab. 
+
+INSERT 2_bot_completion_ex1.mov from GoogleDrive
+
+We have also added an additional short video of the visual representation of the planner. The video outlines the Autobot's generated path in RVIZ to be inspected visually. Furthermore, it also showcases an instance of the planner's ability to replan when it detects a mistake in it's path. It is important to note that the video below is a seperate instance of the Goto-N node and not related to the video above. 
+
+INSERT replanning_screenrecording.mov from GoogleDrive
+
 
 # 2. Duckietown Set-up: #
 To run the Goto-N pipeline, the user has to setup an operational duckietown according to the specifications found [here](https://docs.duckietown.org/daffy/opmanual_duckietown/out/index.html). Furthermore, the package requires access to a localization system in order to ensure that the duckiebots are localizable. Consequently, the duckietown has to be configured as an autolab according to the autolab specifications found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/index.html). Once the duckietown is setup as a functioning autlab, with watchtowers and april tags placed correctly and the localization system configured, the user can proceed to the duckiebot and server setup. 
@@ -15,7 +22,7 @@ The entire project is based on the "daffy" (develop) configuration of Duckietown
 ### Setting up the framework on each Autobot: ###
 To test this project, the Duckiebot needs to be updated to Autobots. You do this by following [this](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_autobot_specs.html).
 
-Ensure that the Autobot has the latest **dt-core**, **dr-car-interface** and **dt-duckiebot-interface**:
+Ensure that the Autobot has the latest **dt-core**, **dt-car-interface** and **dt-duckiebot-interface**:
 
 ```
 $ docker -H DUCKIEBOT_NAME.local pull duckietown/dt-car-interface:daffy
@@ -106,6 +113,14 @@ $ dts devel build -f –arch amd64
 ```
 
 # 5. Pre-Flight Checklist: #
+#[checkbox:checked] The Autolab is setup according to section * *2.0 Duckietown Setup* * , with watchtowers and april tags correctly placed.
+#[checkbox:checked] The Autobots are setup according to the autolab definition. 
+#[checkbox:checked] The yaml file of the map contains all the relevant information including tile information, tile size and april tag locations.
+#[checkbox:checked] The Autobot and Termination Position ymal files are updated to the desired parameters.
+#[checkbox:checked] The latest version of **dt-core**, **dt-car-interface** and **dt-duckiebot-interface** has been pulled.
+#[checkbox:checked] The latest version of the **acquisition-bridge** is pulled onto each Autobot and the **dt-core** packages has been overriden to the goto-n **dt-core-edit** package.
+#[checkbox:checked] The localization system is started up and running. RVIZ is also open to visualize the created plan. 
+#[checkbox:checked] The Autobots are running the goto_n_duckiebot node, built from the required repositories. 
 
 # 6. Demo Instructions: #
 Once the setup instructions for the Autolab, Autobot and server have been executed, it is possible to start the demo. Make sure that the watchtower localization system is up and running. Furthermore, make sure that the relevant information if fed into the Goto-N server node such as the Autobot list and desired termination positions. Lastly, also make sure that the Autobots are present in the Autolab and meet our pre-defined assumptions. 
@@ -172,5 +187,6 @@ If the messages from the server are not being recieved on the Autobot, check if 
 # 11. Remarks: #
 This code is only tested for ML k31 autolab enviornment.
 The system is scaleable to as many robots as needed, but only tested for up to 3 bots.
+Please note all videos have duckies present on the Autobot. However, as the April Tag had to be free from obstruction, it is possible that the duckies are not 
 
 
