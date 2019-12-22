@@ -211,7 +211,8 @@ Resolution: The precision node is reliant on fast updates from the localization 
 * resampling_frequency 
 
 # 9. Demo Failure # 
-
+The unsuccessfull attempts were most of the times due to troubles at intersections. One example of this is shown here:
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zOQIrjDeYjE/0.jpg)](https://www.youtube.com/watch?v=zOQIrjDeYjE)
 # 10. Imrovements: #
 
 # 11. Remarks: #
