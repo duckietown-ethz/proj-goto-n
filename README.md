@@ -223,9 +223,11 @@ However, when accidents like this occur, the pipeline has a replan function, whi
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9v8k-jVKoUQ/0.jpg)](https://www.youtube.com/watch?v=9v8k-jVKoUQ)
 
+More videos can be found in the [GoTO-n Google Docs Folder](https://drive.google.com/drive/folders/1GXWG0bLcwyeUMe6TmEe0jZCGxCW-_XYq)
+
 # 10. Remarks: #
 This code is only tested for ML k31 autolab enviornment.
 The system is scaleable to as many robots as needed, but only tested for up to 3 bots.
 Please note all videos have duckies present on the Autobot. However, as the April Tag had to be free from obstruction, it is possible that the duckies are not 
 
-
+More videos can be found in the [GoTO-n Google Docs Folder](https://drive.google.com/drive/folders/1GXWG0bLcwyeUMe6TmEe0jZCGxCW-_XYq)
