@@ -4,7 +4,7 @@
 ##### Supervisor: Jacopo Tani #####
 
 # 1. Goto-N Project: #
-The video below shows the successful completion of the Goto-N Project Pipeline for two duckiebots in an autolab. 
+The video below shows the successful completion of the Goto-N Project Pipeline for two Autobots in an Autolab. 
 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/VwOEvW4-aio/0.jpg)](https://www.youtube.com/watch?v=VwOEvW4-aio)
@@ -15,13 +15,13 @@ We have also added an additional short video of the visual representation of the
 
 
 # 2. Duckietown Set-up: #
-To run the Goto-N pipeline, the user has to setup an operational duckietown according to the specifications found [here](https://docs.duckietown.org/daffy/opmanual_duckietown/out/index.html). Furthermore, the package requires access to a localization system in order to ensure that the duckiebots are localizable. Consequently, the duckietown has to be configured as an autolab according to the autolab specifications found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/index.html). Once the duckietown is setup as a functioning autlab, with watchtowers and april tags placed correctly and the localization system configured, the user can proceed to the duckiebot and server setup. 
+To run the Goto-N pipeline, the user has to setup an operational duckietown according to the specifications found [here](https://docs.duckietown.org/daffy/opmanual_duckietown/out/index.html). Furthermore, the package requires access to a localization system in order to ensure that the Autobots are localizable. Consequently, the duckietown has to be configured as an autolab according to the autolab specifications found [here](https://docs.duckietown.org/daffy/opmanual_autolab/out/index.html). Once the duckietown is setup as a functioning autlab, with watchtowers and april tags placed correctly and the localization system configured, the user can proceed to the Autobot and server setup. 
 
-# 3. Duckiebot Set-up: #
+# 3. Autobot Set-up: #
 The entire project is based on the "daffy" (develop) configuration of Duckietown. It is built around the dt-core pipeline and comminicating with the autolab server. It is important that this is only tried in autolabs, where the watchtowers and localization system is properly set up.
 
 ### Setting up the framework on each Autobot: ###
-To test this project, the Duckiebot needs to be updated to Autobots. You do this by following [this](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_autobot_specs.html).
+To test this project, the Duckiebot needs to be updated to Autobot. You do this by following [this](https://docs.duckietown.org/daffy/opmanual_autolab/out/autolab_autobot_specs.html).
 
 Ensure that the Autobot has the latest **dt-core**, **dt-car-interface** and **dt-duckiebot-interface**:
 
