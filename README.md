@@ -215,11 +215,11 @@ Resolution: The precision node is reliant on fast updates from the localization 
 * resampling_frequency 
 
 # 9. Demo Failure: # 
-The unsuccessfull attempts were most of the times due to troubles at intersections:
+There are a few instances in which the demo performance was not as desired. Although the Autobot receives the correct waypoint commands from the planner, its does not always perform the desired way in intersections. For example, the video below shows a trial in which the Autobot crashed while navigating the intersection. 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zOQIrjDeYjE/0.jpg)](https://www.youtube.com/watch?v=zOQIrjDeYjE)
 
-Or sometimes the lanefollowing makes the robot do a U-turn:
+Other instances of demo failures also relate to lane-following. As you can see in the video below, the Autobot performed an undesired U-turn in the lane, resulting in a failed attempt. 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/lve8caWlg_Y/0.jpg)](https://www.youtube.com/watch?v=lve8caWlg_Y)
 
