@@ -1,5 +1,8 @@
 ![alt text](https://github.com/duckietown-ethz/proj-goto-n/blob/master/header.png)
 #### Contributors: Alexander Hatteland, Marc-Philippe Frey & Demetris Chrysostomou ####
+#### Mentors: Amaury Camus, Tomasz Zaluska ####
+#### Supervisor: Jacopo Tani ####
+
 
 # Set-up: #
 The entire project is based on the "daffy" (develop) configuration of Duckietown. It is built around the dt-core pipeline and comminicating with the autolab server. It is important that this is only tried in autolabs, where the watchtowers and localization system is properly set up.
