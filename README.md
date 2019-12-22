@@ -222,13 +222,12 @@ The unsuccessfull attempts were most of the times due to troubles at intersectio
 Or sometimes the lanefollowing makes the robot do a U-turn:
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/lve8caWlg_Y/0.jpg)](https://www.youtube.com/watch?v=lve8caWlg_Y)
-lve8caWlg_Y
+
 
 However, when accidents like this occur, the pipeline has a replan function, which replans according to the new position of the robot. This is to make the system more reliable, and less prone to failure caused by bad driving. An example of a replanning procedure is found here: 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9v8k-jVKoUQ/0.jpg)](https://www.youtube.com/watch?v=9v8k-jVKoUQ)
 
-More videos can be found in the [GoTO-n Google Docs Folder](https://drive.google.com/drive/folders/1GXWG0bLcwyeUMe6TmEe0jZCGxCW-_XYq)
 
 # 10. Remarks: #
 This code is only tested for ML k31 autolab enviornment.
