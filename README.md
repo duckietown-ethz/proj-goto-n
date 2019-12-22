@@ -142,7 +142,7 @@ $ docker run -it –-rm –net host duckietown/goto_n:v1-amd64
 ```
 Once the system is running, it will send waypoint commands to all the Autobots defined in the duckiebot.yaml file specififed in the config folder (remember to have the same amout of termination states as Autobots defined).
 
-###Example on a successfull demo:###
+### Example on a successfull demo: ###
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/tBLPGD_Uex0/0.jpg)](https://www.youtube.com/watch?v=tBLPGD_Uex0)
 
@@ -221,9 +221,8 @@ The unsuccessfull attempts were most of the times due to troubles at intersectio
 However, when accidents like this occur, the pipeline has a replan function, which replans according to the new position of the robot. This is to make the system more reliable, and less prone to failure caused by bad driving. An example of a replanning procedure is found here: 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9v8k-jVKoUQ/0.jpg)](https://www.youtube.com/watch?v=9v8k-jVKoUQ)
-# 10. Imrovements: #
 
-# 11. Remarks: #
+# 10. Remarks: #
 This code is only tested for ML k31 autolab enviornment.
 The system is scaleable to as many robots as needed, but only tested for up to 3 bots.
 Please note all videos have duckies present on the Autobot. However, as the April Tag had to be free from obstruction, it is possible that the duckies are not 
