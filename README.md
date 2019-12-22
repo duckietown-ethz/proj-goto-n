@@ -113,14 +113,14 @@ $ dts devel build -f –arch amd64
 ```
 
 # 5. Pre-Flight Checklist: #
-#[checkbox:checked]The Autolab is setup according to section * *2.0 Duckietown Setup* * , with watchtowers and april tags correctly placed.
-#[checkbox:checked]The Autobots are setup according to the autolab definition. 
-#[checkbox:checked]The yaml file of the map contains all the relevant information including tile information, tile size and april tag locations.
-#[checkbox:checked]The Autobot and Termination Position ymal files are updated to the desired parameters.
-#[checkbox:checked]The latest version of **dt-core**, **dt-car-interface** and **dt-duckiebot-interface** has been pulled.
-#[checkbox:checked]The latest version of the **acquisition-bridge** is pulled onto each Autobot and the **dt-core** packages has been overriden to the goto-n **dt-core-edit** package.
-#[checkbox:checked]The localization system is started up and running. RVIZ is also open to visualize the created plan. 
-#[checkbox:checked]The Autobots are running the goto_n_duckiebot node, built from the required repositories. 
+# [checkbox:checked]The Autolab is setup according to section  *2.0 Duckietown Setup*, with watchtowers and april tags correctly placed.
+# [checkbox:checked]The Autobots are setup according to the autolab definition. 
+# [checkbox:checked]The yaml file of the map contains all the relevant information including tile information, tile size and april tag locations.
+# [checkbox:checked]The Autobot and Termination Position ymal files are updated to the desired parameters.
+# [checkbox:checked]The latest version of **dt-core**, **dt-car-interface** and **dt-duckiebot-interface** has been pulled.
+# [checkbox:checked]The latest version of the **acquisition-bridge** is pulled onto each Autobot and the **dt-core** packages has been overriden to the goto-n **dt-core-edit** package.
+# [checkbox:checked]The localization system is started up and running. RVIZ is also open to visualize the created plan. 
+# [checkbox:checked]The Autobots are running the goto_n_duckiebot node, built from the required repositories. 
 
 # 6. Demo Instructions: #
 Once the setup instructions for the Autolab, Autobot and server have been executed, it is possible to start the demo. Make sure that the watchtower localization system is up and running. Furthermore, make sure that the relevant information if fed into the Goto-N server node such as the Autobot list and desired termination positions. Lastly, also make sure that the Autobots are present in the Autolab and meet our pre-defined assumptions. 
