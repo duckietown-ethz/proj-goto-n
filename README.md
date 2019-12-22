@@ -113,7 +113,7 @@ $ dts devel build -f –arch amd64
 ```
 
 # 5. Pre-Flight Checklist: #
-checked # [checkbox:checked]The Autolab is setup according to section  *2.0 Duckietown Setup*, with watchtowers and april tags correctly placed.
+#[checkbox:checked]The Autolab is setup according to section  *2.0 Duckietown Setup*, with watchtowers and april tags correctly placed.
 # [checkbox:checked]The Autobots are setup according to the autolab definition. 
 # [checkbox:checked]The yaml file of the map contains all the relevant information including tile information, tile size and april tag locations.
 # [checkbox:checked]The Autobot and Termination Position ymal files are updated to the desired parameters.
