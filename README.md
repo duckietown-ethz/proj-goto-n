@@ -144,6 +144,7 @@ Once the system is running, it will send waypoint commands to all the Autobots d
 
 ###Example on a successfull demo:###
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/tBLPGD_Uex0/0.jpg)](https://www.youtube.com/watch?v=tBLPGD_Uex0)
 
 ### Additional: ###
 It is possible to see the output of the planning through Rviz. The topic _/autobotXX/planning_vizualisation_ will show the path of each Autobot. Remember to overlay the map.
@@ -214,9 +215,11 @@ Resolution: The precision node is reliant on fast updates from the localization 
 
 # 9. Demo Failure: # 
 The unsuccessfull attempts were most of the times due to troubles at intersections. One example of this is shown here:
+
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zOQIrjDeYjE/0.jpg)](https://www.youtube.com/watch?v=zOQIrjDeYjE)
 
 However, when accidents like this occur, the pipeline has a replan function, which replans according to the new position of the robot. This is to make the system more reliable, and less prone to failure caused by bad driving. An example of a replanning procedure is found here: 
+
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9v8k-jVKoUQ/0.jpg)](https://www.youtube.com/watch?v=9v8k-jVKoUQ)
 # 10. Imrovements: #
 
